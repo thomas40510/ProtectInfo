@@ -22,11 +22,11 @@ function Dict = LempelZivDic(X, n)
     % Loop through the source to build the dictionary
     for i = 1:length(X)
         code_length = code_length + 1;
-        code_word = X(i);
+        code_word = dec2bin(X(i));
         j = i + 1;
 
         while j <= length(X) && code_length <= 2 ^ n
-            code_word = [code_word, X(j)];
+            code_word = strcat(dec2bin(code_word), dec2bin(X(j)));
             j = j + 1;
 
             if ~ismember(code_word, [Dict.mot])
@@ -37,7 +37,7 @@ function Dict = LempelZivDic(X, n)
                     break;
                 end
 
-                code_word = X(i);
+                code_word = dec2bin(X(i));
                 code_length = code_length + 1;
             end
 
