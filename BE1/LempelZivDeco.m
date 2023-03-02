@@ -4,15 +4,28 @@
 % returns the decoded DMS Y.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function Y = LempelZivDeco(X,Dict)
-    Y = X(:)';
+    % implement Lempel-Ziv decoding
+
+    % initialize variables
+    Y = [];
     n = log2(length(Dict));
-    Y = [Y, zeros(1, n)];
-    for i = 1:length(Y) - n
+    X = X(:)';
+    X = [X, zeros(1, n)];
+    i = 1;
+
+    % loop over the DMS
+    while i <= length(X) - n
+        % find the longest word in the dictionary that matches the current
+        % word
         for j = 1:length(Dict)
-            if Y(i:i+n) == Dict(j).code
-                Y(i:i+n) = Dict(j).mot;
+            if X(i:i+n) == Dict(j).code
+                Y = [Y, Dict(j).mot];
+                i = i + n + 1;
                 break
             end
         end
     end
+
+    % remove the last n bits
+    Y = Y(1:end-n);
 end
