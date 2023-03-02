@@ -7,5 +7,5 @@
 % returns moybits
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function moybits = moybits(N, P)
-    moybits = sum(P .* N);
+    moybits = sum(sum(P .* N)) / length(P);
 end
