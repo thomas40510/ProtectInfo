@@ -4,8 +4,6 @@
 % returns the encoded DMS X.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function X = LempelZivEnCo(X,Dict)
-    % encode DMS X using dictionary Dict
-    
     X = X(:)';
     n = log2(length(Dict));
     X = [X, zeros(1, n)];
