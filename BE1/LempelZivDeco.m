@@ -4,8 +4,6 @@
 % returns the decoded DMS Y.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function Y = LempelZivDeco(X,Dict)
-    % implement Lempel-Ziv decoding
-
     % initialize variables
     Y = [];
     n = log2(length(Dict));

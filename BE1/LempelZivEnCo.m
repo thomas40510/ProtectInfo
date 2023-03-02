@@ -4,8 +4,6 @@
 % returns the encoded DMS X.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function E = LempelZivEnCo(X,Dict)
-    % implement Lempel-Ziv encoding
-
     % initialize variables
     E = [];
     n = log2(length(Dict));
