@@ -7,9 +7,11 @@
 function d = minDist(C)
     [m,n] = size(C);
     d = n;
-    for i = 1:m-1
+    for i = 1:m
         for j = i+1:m
-            d = min(d, sum(abs(C(i,:)-C(j,:))));
+            if sum(rem(C(i,:)+C(j,:),2)) < d
+                d = sum(rem(C(i,:)+C(j,:),2));
+            end
         end
     end
 end
