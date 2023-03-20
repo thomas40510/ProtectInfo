@@ -10,9 +10,7 @@ function d = compareToParity(G)
     C = genCode(G);
     d = minDist(C);
     [Cp,Gp] = parityCode(n,m);
-    fprintf('min dist parity\n');
     dp = minDist(Cp);
-    fprintf('min dist code OK\n');
     fprintf('Minimum distance of the code: %d\n',d);
     fprintf('Minimum distance of the parity code: %d\n',dp);
 end
